@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new Nvd.Windows.Forms.TextBox(this, new System.Drawing.Point(13, 33));
-            this.textBox2 = new Nvd.Windows.Forms.TextBox(this, new System.Drawing.Point(333, 32));
+            this.textBox1 = new Nvd.Windows.Forms.TextBox(new System.Drawing.Point(13, 33));
+            this.textBox2 = new Nvd.Windows.Forms.TextBox(new System.Drawing.Point(333, 32));
             this.textBox3 = new Nvd.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
