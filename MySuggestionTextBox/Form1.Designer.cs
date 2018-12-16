@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new Nvd.Windows.Forms.TextBox(new System.Drawing.Point(13, 33));
-            this.textBox2 = new Nvd.Windows.Forms.TextBox(new System.Drawing.Point(333, 32));
+            this.textBox1 = new Nvd.Windows.Forms.TextBox();
+            this.textBox2 = new Nvd.Windows.Forms.TextBox();
             this.textBox3 = new Nvd.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 13);
+            this.textBox1.Location = new System.Drawing.Point(59, 28);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(333, 12);
+            this.textBox2.Location = new System.Drawing.Point(236, 59);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(13, 59);
+            this.textBox3.Location = new System.Drawing.Point(375, 107);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 2;

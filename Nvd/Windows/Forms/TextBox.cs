@@ -5,7 +5,8 @@
         private textBoxList list;
         public TextBox() : base()
         {
-
+            list = new textBoxList(baseForm, this);
+            list.Visible = false;
         }
 
         private System.Windows.Forms.Form baseForm;
@@ -15,14 +16,14 @@
         /// </summary>
         /// <param name="baseForm">The form that textbox is in it. Normally you should write "this"</param>
         /// <param name="location">The location of the list. It's better to put textbox location from Designer + highth of textbox added to Y</param>
-        public TextBox(System.Drawing.Point location) : base()
-        {
-            list = new textBoxList(baseForm, this);
-            list.Location = location;
-            list.Visible = false;
+        //public TextBox(System.Drawing.Point location) : base()
+        //{
+        //    list = new textBoxList(baseForm, this);
+        //    list.Location = location;
+        //    list.Visible = false;
             
 
-        }
+        //}
 
         protected override void OnEnter(System.EventArgs e)
         {
@@ -30,8 +31,12 @@
             if (this.baseForm == null)
             {
                 this.baseForm = (System.Windows.Forms.Form)this.Parent;
-                
                 baseForm.Controls.Add(list);
+
+                list.Font = this.Font;
+                list.BackColor = this.BackColor;
+                list.ForeColor = this.ForeColor;
+                list.Location = new System.Drawing.Point(this.Location.X,this.Location.Y+this.Size.Height);
                 
             }
         }
