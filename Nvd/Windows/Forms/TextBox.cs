@@ -1,12 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace MySuggestingTextBox
+﻿namespace Nvd.Windows.Forms
 {
-    class BaseTextBox : System.Windows.Forms.TextBox
+    public class TextBox : System.Windows.Forms.TextBox
     {
         private textBoxList list;
-        public BaseTextBox() : base()
+        public TextBox() : base()
         {
 
         }
@@ -15,10 +12,10 @@ namespace MySuggestingTextBox
         /// </summary>
         /// <param name="baseForm">The form that textbox is in it. Normally you should write "this"</param>
         /// <param name="location">The location of the list. It's better to put textbox location from Designer + highth of textbox added to Y</param>
-        public BaseTextBox(System.Windows.Forms.Form baseForm, System.Drawing.Point location) : base()
+        public TextBox(System.Windows.Forms.Form baseForm, System.Drawing.Point location) : base()
         {
             this.baseForm = baseForm;
-            list = new textBoxList(baseForm,this);
+            list = new textBoxList(baseForm, this);
             list.Location = location;
             list.Visible = false;
             baseForm.Controls.Add(list);
@@ -40,23 +37,26 @@ namespace MySuggestingTextBox
                 list.SelectedIndex = 0;
                 return;
             }
-            
+
             base.OnKeyUp(e);
 
-            list.Items.Clear();
-            list.Visible = false;
-            if (string.IsNullOrWhiteSpace(this.Text)) return;
-
-            //int maxLength = 0;
-            foreach (string item in ListItems)
+            if (list != null)
             {
-                if (item.ToLower().StartsWith(this.Text.ToLower()))
+                list.Items.Clear();
+                list.Visible = false;
+                if (string.IsNullOrWhiteSpace(this.Text)) return;
+
+                //int maxLength = 0;
+                foreach (string item in ListItems)
                 {
-                    if (!list.Visible) list.Visible = true;
-                    //if (item.Length > maxLength) maxLength = item.Length;
-                    list.Items.Add(item);
-                    //list.Size = new System.Drawing.Size((maxLength + 1) * (int)System.Math.Round(list.Font.SizeInPoints), (list.Items.Count + 1) * list.Font.Height);
-                    list.Size = new System.Drawing.Size(this.Size.Width, (list.Items.Count + 1) * list.Font.Height);
+                    if (item.ToLower().StartsWith(this.Text.ToLower()))
+                    {
+                        if (!list.Visible) list.Visible = true;
+                        //if (item.Length > maxLength) maxLength = item.Length;
+                        list.Items.Add(item);
+                        //list.Size = new System.Drawing.Size((maxLength + 1) * (int)System.Math.Round(list.Font.SizeInPoints), (list.Items.Count + 1) * list.Font.Height);
+                        list.Size = new System.Drawing.Size(this.Size.Width, (list.Items.Count + 1) * list.Font.Height);
+                    }
                 }
             }
         }
@@ -65,15 +65,15 @@ namespace MySuggestingTextBox
 
         class textBoxList : System.Windows.Forms.ListBox
         {
-            public textBoxList(System.Windows.Forms.Form baseForm, BaseTextBox textbox) : base()
+            public textBoxList(System.Windows.Forms.Form baseForm, TextBox textbox) : base()
             {
                 this.baseForm = baseForm;
                 this.textbox = textbox;
             }
 
-            BaseTextBox textbox;
+            TextBox textbox;
             System.Windows.Forms.Form baseForm;
-            protected override void OnKeyUp(KeyEventArgs e)
+            protected override void OnKeyUp(System.Windows.Forms.KeyEventArgs e)
             {
                 base.OnKeyUp(e);
                 if (e.KeyData == System.Windows.Forms.Keys.Enter)
@@ -84,7 +84,7 @@ namespace MySuggestingTextBox
                 }
             }
 
-            protected override void OnDoubleClick(EventArgs e)
+            protected override void OnDoubleClick(System.EventArgs e)
             {
                 base.OnDoubleClick(e);
                 textbox.Text = (string)this.SelectedItem;

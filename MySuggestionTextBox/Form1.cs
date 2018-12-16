@@ -17,7 +17,7 @@ namespace MySuggestingTextBox
             InitializeComponent();
             listBox1Items = new object[] {
             "January",
-            "Febriuary",
+            "February",
             "March",
             "April",
             "May",
@@ -28,6 +28,7 @@ namespace MySuggestingTextBox
             "October",
             "November",
             "December"};
+            txtBox.ListItems = listBox1Items;
 
         }
 
