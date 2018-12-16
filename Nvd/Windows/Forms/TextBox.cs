@@ -40,23 +40,24 @@
 
             base.OnKeyUp(e);
 
-            if (list != null)
-            {
+            //if (list != null && list.Items.Count != 0)
+            if (list == null || ListItems==null) return; 
                 list.Items.Clear();
                 list.Visible = false;
-                if (string.IsNullOrWhiteSpace(this.Text)) return;
+            
+            if (string.IsNullOrWhiteSpace(this.Text)) return;
 
-                //int maxLength = 0;
-                foreach (string item in ListItems)
+
+            //int maxLength = 0;
+            foreach (string item in ListItems)
+            {
+                if (item.ToLower().StartsWith(this.Text.ToLower()))
                 {
-                    if (item.ToLower().StartsWith(this.Text.ToLower()))
-                    {
-                        if (!list.Visible) list.Visible = true;
-                        //if (item.Length > maxLength) maxLength = item.Length;
-                        list.Items.Add(item);
-                        //list.Size = new System.Drawing.Size((maxLength + 1) * (int)System.Math.Round(list.Font.SizeInPoints), (list.Items.Count + 1) * list.Font.Height);
-                        list.Size = new System.Drawing.Size(this.Size.Width, (list.Items.Count + 1) * list.Font.Height);
-                    }
+                    if (!list.Visible) list.Visible = true;
+                    //if (item.Length > maxLength) maxLength = item.Length;
+                    list.Items.Add(item);
+                    //list.Size = new System.Drawing.Size((maxLength + 1) * (int)System.Math.Round(list.Font.SizeInPoints), (list.Items.Count + 1) * list.Font.Height);
+                    list.Size = new System.Drawing.Size(this.Size.Width, (list.Items.Count + 1) * list.Font.Height);
                 }
             }
         }
