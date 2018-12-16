@@ -31,34 +31,43 @@
             this.textBox1 = new Nvd.Windows.Forms.TextBox();
             this.textBox2 = new Nvd.Windows.Forms.TextBox();
             this.textBox3 = new Nvd.Windows.Forms.TextBox();
+            this.textBox4 = new Nvd.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(59, 28);
+            this.textBox1.Location = new System.Drawing.Point(47, 25);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(236, 59);
+            this.textBox2.Location = new System.Drawing.Point(214, 77);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(375, 107);
+            this.textBox3.Location = new System.Drawing.Point(384, 116);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBox3.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(47, 176);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 544);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -70,9 +79,9 @@
         }
 
         #endregion
-
         private Nvd.Windows.Forms.TextBox textBox1;
         private Nvd.Windows.Forms.TextBox textBox2;
         private Nvd.Windows.Forms.TextBox textBox3;
+        private Nvd.Windows.Forms.TextBox textBox4;
     }
 }

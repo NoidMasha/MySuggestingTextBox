@@ -18,6 +18,9 @@ namespace MySuggestingTextBox
             object[] listItems = new object[] {"Navid","Hamed","Alireza","Saeed","Nahid","ALI","Hadi","Narges","Hamid" };
             textBox1.ListItems = listItems;
             textBox2.ListItems = listItems;
+            textBox3.ListItems = listItems;
         }
+
+
     }
 }
