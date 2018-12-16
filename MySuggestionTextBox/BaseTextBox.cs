@@ -26,6 +26,13 @@ namespace MySuggestingTextBox
         public int ListItemsCount { get { return list.Items.Count; } }
         public int ListItemHighth { get { return list.Font.Height; } }
 
+        private void UpdateList(string toSearchText, System.Drawing.Point listLocation)
+        {
+            if (list.IsDisposed || list == null || string.IsNullOrWhiteSpace(toSearchText) || list.Items.Count == 0) return;
+
+
+        }
+
         class textBoxList:System.Windows.Forms.ListBox
         {
             public textBoxList():base()
