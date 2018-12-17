@@ -12,11 +12,22 @@
 
         private textBoxList list;
         private System.Windows.Forms.Form baseForm;
+        private System.Collections.Generic.List<string> listItems = null;
 
         /// <summary>
-        /// The list searches inside this object list."new object[]{"text1","text2",...};"
+        /// The list searches inside this object list.(new System.Collections.Generic.List<string> {"text_1","text_2",...,"text_n"};)
         /// </summary>
-        public object[] ListItems;
+        public System.Collections.Generic.List<string> ListItems
+        {
+            get
+            {
+                return listItems;
+            }
+            set
+            {
+                listItems = value;
+            }
+        }
 
         protected override void OnEnter(System.EventArgs e)
         {
@@ -47,29 +58,22 @@
             }
         }
 
-        //protected override void OnKeyDown(KeyEventArgs e)
-        //{
-        //    base.OnKeyDown(e);
-        //    if (e.KeyData == System.Windows.Forms.Keys.Tab)
-        //    {
-        //        list.Items.Clear();
-        //        list.Visible = false;
-        //        //baseForm.SelectNextControl(this, true, true, true, true);
-        //    }
-        //    else
-        //    {
-        //        base.OnKeyDown(e);
-        //    }
-        //}
         protected override void OnKeyPress(System.Windows.Forms.KeyPressEventArgs e)
         {
             //base.OnKeyPress(e);
-            e.Handled = false;
+            if (e.KeyChar == (char)System.Windows.Forms.Keys.Tab)
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
         }
 
 
 
-        protected override void OnKeyDown(System.Windows.Forms.KeyEventArgs e)
+        protected override void OnKeyUp(System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyData == System.Windows.Forms.Keys.Down && list.Visible)
             {
@@ -93,7 +97,7 @@
 
             base.OnKeyUp(e);
 
-            if (list == null || ListItems == null) return;
+            if (list == null || listItems == null) return;
 
             list.Items.Clear();
             list.Visible = false;
@@ -101,7 +105,7 @@
             if (string.IsNullOrWhiteSpace(this.Text)) return;
 
             //int maxLength = 0;
-            foreach (string item in ListItems)
+            foreach (string item in listItems)
             {
                 if (item.ToLower().StartsWith(this.Text.ToLower()))
                 {
@@ -158,7 +162,6 @@
                 {
                     this.Items.Clear();
                     this.Visible = false;
-                    //baseForm.SelectNextControl(textbox, true, true, true, true);
                 }
                 else
                 {
